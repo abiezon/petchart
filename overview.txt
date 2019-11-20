@@ -1,0 +1,20 @@
+##Funcionalidades Desenvolvidas###
+
+Cadastro de Pet
+Cadastro de owners - Proprietário/Dono
+Cadastro de Kinds - Tipos (Gato, Cachorro, etc)
+Cadastro de Charts - Prontuários
+
+Cada cadastro com CRUD - Create, Read, Update and DELETE
+
+Criada visualização de prontuários por Pets.
+
+Criado testes para os cadastros e validações.
+
+##Melhorias Identificadas###
+
+É possível melhorar o prontuário vinculando com uma ocorrência de atendimento
+Criar área de login
+Adicionar paginação
+Adicionar ao cadastro de Proprietários o cadastro de endereço e telefones
+Adicionar segurança de acesso, com permissão para diferentes níveis de usuários (Admin, Gerentes, Clientes, Vendedores, etc)
