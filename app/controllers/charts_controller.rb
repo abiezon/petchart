@@ -15,10 +15,12 @@ class ChartsController < ApplicationController
   # GET /charts/new
   def new
     @chart = Chart.new
+    options_for_select
   end
 
   # GET /charts/1/edit
   def edit
+    options_for_select
   end
 
   # POST /charts
@@ -67,6 +69,9 @@ class ChartsController < ApplicationController
       @chart = Chart.find(params[:id])
     end
 
+    def options_for_select
+      @pets_options_select = Pet.all
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def chart_params
       params.require(:chart).permit(:symptoms, :treatment, :date_attendance, :pet_id)

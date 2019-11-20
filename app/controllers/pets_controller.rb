@@ -15,10 +15,12 @@ class PetsController < ApplicationController
   # GET /pets/new
   def new
     @pet = Pet.new
+    options_for_select
   end
 
   # GET /pets/1/edit
   def edit
+    options_for_select
   end
 
   # POST /pets
@@ -26,6 +28,7 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
 
+    options_for_select
     respond_to do |format|
       if @pet.save
         format.html { redirect_to @pet, notice: 'Pet was successfully created.' }
@@ -67,6 +70,10 @@ class PetsController < ApplicationController
       @pet = Pet.find(params[:id])
     end
 
+    def options_for_select
+      @kinds_options_select = Kind.all
+      @owners_options_select = Owner.all
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_params
       params.require(:pet).permit(:name, :birth, :breed, :kind_id, :owner_id)

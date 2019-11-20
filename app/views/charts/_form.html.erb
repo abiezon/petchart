@@ -1,37 +1,42 @@
-<%= form_with(model: chart, local: true) do |form| %>
-  <% if chart.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(chart.errors.count, "error") %> prohibited this chart from being saved:</h2>
+<div class="row">
+  <div class="col-md-9">
+    <%= form_with(model: chart, local: true) do |form| %>
+      <% if chart.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(chart.errors.count, "error") %> prohibited this chart from being saved:</h2>
 
-      <ul>
-        <% chart.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% chart.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div class="field">
-    <%= form.label :symptoms %>
-    <%= form.text_area :symptoms %>
+      <div class="form-group">
+        <%= form.label :symptoms %>
+        <%= form.text_area :symptoms, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :treatment %>
+        <%= form.text_area :treatment, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :date_attendance %>
+        <%= form.date_select :date_attendance, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :pet_id %>
+        <%= collection_select(:chart, :pet_id, @pets_options_select, :id, :name, {}, { class: "form-control"})%>
+      </div>
+
+      <div class="actions">
+        <%= form.submit "Salvar", class: "btn btn-success" %>
+        <%= link_to 'Back', charts_path, class: "btn btn-info" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label :treatment %>
-    <%= form.text_area :treatment %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_attendance %>
-    <%= form.date_select :date_attendance %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pet_id %>
-    <%= form.text_field :pet_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

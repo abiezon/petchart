@@ -1,42 +1,49 @@
-<%= form_with(model: pet, local: true) do |form| %>
-  <% if pet.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+<div class="row">
+  <div class="col-md-9">
+    <%= form_with(model: pet, local: true) do |form| %>
+      <fieldset>
+        <% if pet.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
 
-      <ul>
-        <% pet.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+            <ul>
+              <% pet.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+        <div class="form-group">
+          <%= form.label :name %>
+          <%= form.text_field :name, class: "form-control" %>
+        </div>
 
-  <div class="field">
-    <%= form.label :birth %>
-    <%= form.date_select :birth %>
-  </div>
+        <div class="form-group">
+          <%= form.label :birth %>
+          <%= form.date_select :birth, class: "form-control" %>
+        </div>
 
-  <div class="field">
-    <%= form.label :breed %>
-    <%= form.text_field :breed %>
-  </div>
+        <div class="form-group">
+          <%= form.label :breed %>
+          <%= form.text_field :breed, class: "form-control" %>
+        </div>
 
-  <div class="field">
-    <%= form.label :kind_id %>
-    <%= form.text_field :kind_id %>
-  </div>
+        <div class="form-group">
+          <%= form.label :kind_id %>
+          <%= collection_select(:pet, :kind_id, @kinds_options_select, :id, :description, {}, { class: "form-control"})%>
+        </div>
 
-  <div class="field">
-    <%= form.label :owner_id %>
-    <%= form.text_field :owner_id %>
-  </div>
+        <div class="form-group">
+          <%= form.label :owner_id %>
+          <%= collection_select(:pet, :owner_id, @owners_options_select, :id, :name, {}, { class: "form-control"})%>
+        </div>
 
-  <div class="actions">
-    <%= form.submit %>
+        <div class="form-group">
+          <%= form.submit "Salvar", class: "btn btn-success" %>
+          <%= link_to 'Voltar', pets_path, class: "btn btn-info" %>
+        </div>
+      </fieldset>
+    <% end %>
   </div>
-<% end %>
+</div>

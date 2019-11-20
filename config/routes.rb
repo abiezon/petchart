@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'pets#index'
+
   resources :charts
   resources :pets
   resources :owners
