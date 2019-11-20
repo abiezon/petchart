@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  birth: 2019-11-19
+  breed: MyString
+  kind: one
+  owner: one
+
+two:
+  name: MyString
+  birth: 2019-11-19
+  breed: MyString
+  kind: two
+  owner: two
