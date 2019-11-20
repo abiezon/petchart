@@ -28,7 +28,6 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
 
-    options_for_select
     respond_to do |format|
       if @pet.save
         format.html { redirect_to @pet, notice: 'Pet was successfully created.' }

@@ -1,9 +1,16 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="jumbotron col-md-12">
+    <h4 class="display-4">Kind</h4>
+    <hr>
+    <p>
+      <strong>Description:</strong>
+      <%= @kind.description %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @kind.description %>
-</p>
-
-<%= link_to 'Edit', edit_kind_path(@kind) %> |
-<%= link_to 'Back', kinds_path %>
+    <div class="form-group">
+      <%= link_to 'Edit', edit_kind_path(@kind), class: 'btn btn-success' %>
+      <%= link_to 'Back', kinds_path, class: 'btn btn-info' %>
+    </div>
+  </div>
+</div>

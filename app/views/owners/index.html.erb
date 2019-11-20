@@ -8,7 +8,7 @@
       <tr>
         <th>Name</th>
         <th>Email</th>
-        <th colspan="3"></th>
+        <th>Actions</th>
       </tr>
     </thead>
 
@@ -17,9 +17,11 @@
         <tr>
           <td><%= owner.name %></td>
           <td><%= owner.email %></td>
-          <td><%= link_to 'Show', owner %></td>
-          <td><%= link_to 'Edit', edit_owner_path(owner) %></td>
-          <td><%= link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td>
+            <%= link_to 'Show', owner, class: 'btn btn-info' %>
+            <%= link_to 'Edit', edit_owner_path(owner), class: 'btn btn-primary' %>
+            <%= link_to 'Delete', owner, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          </td>
         </tr>
       <% end %>
     </tbody>

@@ -23,6 +23,10 @@ class ChartsController < ApplicationController
     options_for_select
   end
 
+  def show_charts
+    @charts = Chart.where(["pet_id = ?", params[:pet_id]])
+  end
+
   # POST /charts
   # POST /charts.json
   def create

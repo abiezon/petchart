@@ -1,14 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @owner.name %>
-</p>
+<div class="row">
+  <div class="jumbotron col-md-12">
+    <h4>Owner</h4>
+    <hr>
+    <p>
+      <strong>Name:</strong>
+      <%= @owner.name %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @owner.email %>
-</p>
-
-<%= link_to 'Edit', edit_owner_path(@owner) %> |
-<%= link_to 'Back', owners_path %>
+    <p>
+      <strong>Email:</strong>
+      <%= @owner.email %>
+    </p>
+    <hr>
+    <div class="form-group">
+      <%= link_to 'Edit', edit_owner_path(@owner), class: 'btn btn-success' %> 
+      <%= link_to 'Back', owners_path, class: 'btn btn-info' %>
+    </div>
+  </div>
+</div>

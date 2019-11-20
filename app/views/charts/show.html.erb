@@ -1,24 +1,32 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="jumbotron col-md-12">
+    <h4 class="display-4">Chart</h4>
+    <hr>
+    <p>
+      <strong>Symptoms:</strong>
+      <%= @chart.symptoms %>
+    </p>
 
-<p>
-  <strong>Symptoms:</strong>
-  <%= @chart.symptoms %>
-</p>
+    <p>
+      <strong>Treatment:</strong>
+      <%= @chart.treatment %>
+    </p>
 
-<p>
-  <strong>Treatment:</strong>
-  <%= @chart.treatment %>
-</p>
+    <p>
+      <strong>Date attendance:</strong>
+      <%= @chart.date_attendance %>
+    </p>
 
-<p>
-  <strong>Date attendance:</strong>
-  <%= @chart.date_attendance %>
-</p>
+    <p>
+      <strong>Pet:</strong>
+      <%= @chart.pet_id %>
+    </p>
 
-<p>
-  <strong>Pet:</strong>
-  <%= @chart.pet_id %>
-</p>
+    <div class="form-group">
+      <%= link_to 'Edit', edit_chart_path(@chart), class: 'btn btn-success' %>
+      <%= link_to 'Back', charts_path, class: 'btn btn-info' %>
+    </div>
 
-<%= link_to 'Edit', edit_chart_path(@chart) %> |
-<%= link_to 'Back', charts_path %>
+  </div>
+</div>

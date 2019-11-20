@@ -1,29 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @pet.name %>
-</p>
+<div class="row">
+  <div class="jumbotron col-md-12">
+    <h4 class="display-4">Pet</h4>
+    <hr>
+    <p>
+      <strong>Name:</strong>
+      <%= @pet.name %>
+    </p>
 
-<p>
-  <strong>Birth:</strong>
-  <%= @pet.birth %>
-</p>
+    <p>
+      <strong>Birth:</strong>
+      <%= @pet.birth %>
+    </p>
 
-<p>
-  <strong>Breed:</strong>
-  <%= @pet.breed %>
-</p>
+    <p>
+      <strong>Breed:</strong>
+      <%= @pet.breed %>
+    </p>
 
-<p>
-  <strong>Kind:</strong>
-  <%= @pet.kind_id %>
-</p>
+    <p>
+      <strong>Kind:</strong>
+      <%= @pet.kind.description %>
+    </p>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @pet.owner_id %>
-</p>
-
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
-<%= link_to 'Back', pets_path %>
+    <p>
+      <strong>Owner:</strong>
+      <%= @pet.owner.name %>
+    </p>
+    <hr>
+    <div class="form-group">
+      <%= link_to 'Edit', edit_pet_path(@pet), class: 'btn btn-success' %>
+      <%= link_to 'Back', pets_path, class: 'btn btn-info' %>
+    </div>
+  </div>
+</div>

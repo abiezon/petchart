@@ -7,7 +7,7 @@
     <thead>
       <tr>
         <th>Description</th>
-        <th colspan="3"></th>
+        <th>Actions</th>
       </tr>
     </thead>
 
@@ -15,9 +15,11 @@
       <% @kinds.each do |kind| %>
         <tr>
           <td><%= kind.description %></td>
-          <td><%= link_to 'Show', kind %></td>
-          <td><%= link_to 'Edit', edit_kind_path(kind) %></td>
-          <td><%= link_to 'Destroy', kind, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td>
+              <%= link_to 'Show', kind, class: 'btn btn-primary' %>
+              <%= link_to 'Edit', edit_kind_path(kind), class: 'btn btn-info' %>
+              <%= link_to 'Delete', kind, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          </td>
         </tr>
       <% end %>
     </tbody>
