@@ -1,22 +1,27 @@
-<%= form_with(model: kind, local: true) do |form| %>
-  <% if kind.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(kind.errors.count, "error") %> prohibited this kind from being saved:</h2>
+<div class="row">
+  <div class="col-md-9">
+    <%= form_with(model: kind, local: true) do |form| %>
+      <% if kind.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(kind.errors.count, "error") %> prohibited this kind from being saved:</h2>
 
-      <ul>
-        <% kind.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% kind.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+      <div class="form-group">
+        <%= form.label :description %>
+        <%= form.text_field :description, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.submit 'Salvar', class: 'btn btn-success' %>
+        <%= link_to 'Back', kinds_path, class: 'btn btn-info' %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
